@@ -1,16 +1,26 @@
 # Backend Ssr Challenge
 
-El desafío consiste en desarrollar 3 microservicios(servicio-1, 2 y 3) que cumplan lo requerido en el *README* de cada carpeta.
-Para ello debe desarrollar el código de cada servicio y confeccionar el Dockerfile correspondiente a cada servicio que puede o no ser el mismo dependiendo como lo haga.
 
-La forma de entrega es subir la resolucion en un repositorio publico y luego envíar el link con la resolución.
+ Tecnologías empleadas:
 
-Para facilitar un poco las cosas ya hay un archivo docker-compose con todos los servicios necesarios para poder realizar el desafío.
+- FastApi
+- Docker
+- MQTT
+- InfluxDB
+- MySql
 
-El plazo es de una semana desde recibido el link a este repositorio y no hay restricciones en cuanto a lenguajes o tecnologías, aunque se recomienda Python o Typescript para la resolución.
 
-Puntos extras si se quiere agregar un front sencillo que utilice el servicio-3.
+Crear archivo .env en raiz del proyecto, con las siguientes variables:
 
-Diagrama
+- DOCKER_INFLUXDB_INIT_TOKEN (Auth token influxb)
+- DOCKER_INFLUXDB_INIT_USERNAME (INFLUXDB USER)
+- DOCKER_INFLUXDB_INIT_PASSWORD (INFLUXDB PASSWORD)
+- DOCKER_INFLUXDB_INIT_ORG (INFLUXDB ORGANIZATION)
+- DOCKER_INFLUXDB_INIT_BUCKET (INFLUXDB BUCKET)
+- DOCKER_INFLUXDB_INIT_HOST (INFLUXDB IP + PORT POR EJ: 0.0.0.0:8686)
+- DOCKER_LOCALHOST_IP (IP LOCALHOST)
 
-![Esquema de resolución](./challenge.png "Esquema de resolución")
+
+Levantar proyecto usando docker-compose up --build
+
+
