@@ -1,0 +1,5 @@
+./servicio-1/venv
+./servicio-2/venv
+./servicio-3/venv
+.git
+.env

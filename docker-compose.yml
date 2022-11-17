@@ -1,27 +1,35 @@
 version: "3"
-
+ 
 services:
   servicio-1:
     build: ./servicio-1/
+    command: python main.py
+    environment:
+      - PYTHONUNBUFFERED=1
     ports:
-      - 8081:8080
+      - 8081:8000
     depends_on:
       - mosquitto
+    env_file: .env
 
   servicio-2:
     build: ./servicio-2/
+    command: python main.py
     ports:
-      - 8082:8080
+      - 8082:8000
     depends_on:
       - mosquitto
+    env_file: .env
 
   servicio-3:
     build: ./servicio-3/
+    command: python main.py
     ports:
-      - 8083:8080
+      - 8083:8000
     depends_on:
       - influx
       - mysql
+    env_file: .env
 
   mosquitto:
     image: eclipse-mosquitto:2
@@ -49,11 +57,13 @@ services:
     ports:
       - 8086:8086
     environment:
+      - DOCKER_INFLUXDB_INIT_TOKEN=YWZ4rHN7tPVED9oII_FuFyvKncvcxWZWkABuspqJ1wKzCQGSAE2umzJP6KrF7W4o74yRP1adbRxB8Agu_YdM_A==
       - DOCKER_INFLUXDB_INIT_USERNAME=admin
       - DOCKER_INFLUXDB_INIT_PASSWORD=admin
       - DOCKER_INFLUXDB_INIT_ORG=tecnoandina
-      - DOCKER_INFLUXDB_INIT_BUCKET=system
-  
+      - DOCKER_INFLUXDB_INIT_BUCKET=system        
+      - DOCKER_INFLUXDB_INIT_HOST=192.168.0.2:8086
+
 volumes:
   mysqldata:
   influxdata:
