@@ -24,3 +24,5 @@ Crear archivo .env en raiz del proyecto, con las siguientes variables:
 Levantar proyecto usando docker-compose up --build
 
 
+Acceder a la interfaz de fastapi para probar endpoints en localhost:8083/docs
+
